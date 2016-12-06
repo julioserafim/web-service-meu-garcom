@@ -2,10 +2,13 @@ package com.projeto.ufc.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -26,7 +29,8 @@ public class Pedido {
 	
 	private Long restaurante;
 	
-	private List<Long> pratos;
+	/*@OneToMany
+	private List<Long> pratos;*/
 	
 	
 	public Long getCodigo() {
@@ -54,12 +58,12 @@ public class Pedido {
 		this.restaurante = restaurante;
 	}
 	
-	public List<Long> getPratos() {
+	/*public List<Long> getPratos() {
 		return pratos;
 	}
 	public void setPratos(List<Long> pratos) {
 		this.pratos = pratos;
-	}
+	}*/
 	
 	
 	
