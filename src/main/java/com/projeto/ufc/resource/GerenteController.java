@@ -17,7 +17,7 @@ import com.projeto.ufc.service.RestauranteService;
 import com.projeto.ufc.service.UsuarioService;
 
 @RestController
-@RequestMapping("/restaurante")
+@RequestMapping("/gerente")
 public class GerenteController {
 	@Autowired
 	private GerenteService gerenteService;
@@ -25,7 +25,7 @@ public class GerenteController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(method = RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value = "/{id}",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarPratoGerente(@RequestBody Prato prato, Long restaurante){
 		gerenteService.adicionarPrato(prato, restaurante);
 		return "Salvo com sucesso";
@@ -38,7 +38,7 @@ public class GerenteController {
 	}
 	
 	
-	@RequestMapping(method = RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value = "/funcionario/",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarFuncionario(@RequestBody Usuario usuario){
 		usuarioService.adicionarUsuario(usuario);
 		return "Salvo com sucesso";
