@@ -20,18 +20,20 @@ public class Cardapio {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long cod_cardapio;
 	
 	@OneToMany
 	@JoinColumn(name = "cod_prato")
 	private List<Prato> prato;
 	
-	public Long getId() {
-		return id;
+	
+
+	public Long getCod_cardapio() {
+		return cod_cardapio;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCod_cardapio(Long cod_cardapio) {
+		this.cod_cardapio = cod_cardapio;
 	}
 
 	public List<Prato> getPrato() {
@@ -46,7 +48,7 @@ public class Cardapio {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((cod_cardapio == null) ? 0 : cod_cardapio.hashCode());
 		result = prime * result + ((prato == null) ? 0 : prato.hashCode());
 		return result;
 	}
@@ -60,10 +62,10 @@ public class Cardapio {
 		if (getClass() != obj.getClass())
 			return false;
 		Cardapio other = (Cardapio) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (cod_cardapio == null) {
+			if (other.cod_cardapio != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!cod_cardapio.equals(other.cod_cardapio))
 			return false;
 		if (prato == null) {
 			if (other.prato != null)
@@ -72,6 +74,8 @@ public class Cardapio {
 			return false;
 		return true;
 	}
+
+	
 
 
 }

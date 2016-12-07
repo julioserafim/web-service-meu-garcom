@@ -23,7 +23,7 @@ public class GerenteController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value = "/{id}",method = RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value = "/prato/",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarPratoGerente(@RequestBody Prato prato){
 		gerenteService.adicionarPrato(prato);
 		return "Salvo com sucesso";

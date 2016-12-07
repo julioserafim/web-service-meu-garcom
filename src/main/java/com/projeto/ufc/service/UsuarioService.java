@@ -14,7 +14,7 @@ public class UsuarioService {
 	private UsuarioRepository usuarioRepository;
 	
 	public void adicionarUsuario(Usuario usuario) {
-		usuario.setId(null);
+		usuario.setCod_usuario(null);
 		usuarioRepository.save(usuario);
 	}
 	

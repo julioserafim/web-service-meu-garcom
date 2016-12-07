@@ -16,17 +16,20 @@ public class Usuario {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long cod_usuario;
+	
 	private String nome;
 	private String cargo;
 	private String login;
 	private String senha;
 	
-	public Long getId() {
-		return id;
+	
+	
+	public Long getCod_usuario() {
+		return cod_usuario;
 	}
-	public void setId(Long id) {
-		this.id = id;
+	public void setCod_usuario(Long cod_usuario) {
+		this.cod_usuario = cod_usuario;
 	}
 	public String getNome() {
 		return nome;

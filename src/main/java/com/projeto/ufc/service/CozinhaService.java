@@ -22,7 +22,7 @@ public class CozinhaService {
 	}
 	
 	public void adicionarPedido(Pedido pedido){
-		pedido.setId(null);
+		pedido.setCod_pedido(null);
 		pedidoRepository.save(pedido);
 	}
 	

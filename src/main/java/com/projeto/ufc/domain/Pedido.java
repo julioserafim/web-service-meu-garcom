@@ -18,7 +18,7 @@ public class Pedido {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long cod_pedido;
 		
 	private int mesa;
 		
@@ -32,13 +32,13 @@ public class Pedido {
 	public void setPrato(Prato prato) {
 		this.prato = prato;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	
+	public Long getCod_pedido() {
+		return cod_pedido;
+	}
+	public void setCod_pedido(Long cod_pedido) {
+		this.cod_pedido = cod_pedido;
+	}
 	public int getMesa() {
 		return mesa;
 	}

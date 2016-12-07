@@ -33,7 +33,7 @@ public class GerenteService {
 	}
 
 	public void adicionarPrato(Prato prato) {
-		prato.setId(null);
+		prato.setCod_prato(null);
 		pratoRepository.save(prato);
 	}
 	
@@ -48,7 +48,7 @@ public class GerenteService {
 	}
 
 	public void adicionarFuncionario(Usuario usuario) {
-		 usuario.setId(null);
+		 usuario.setCod_usuario(null);
 		 usuarioRepository.save(usuario);
 	}
 

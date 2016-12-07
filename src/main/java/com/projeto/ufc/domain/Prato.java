@@ -16,7 +16,7 @@ public class Prato {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long cod_prato;
 	
 	private String nome;
 	
@@ -24,13 +24,12 @@ public class Prato {
 	
 	private double preco;
 	
-
-	public Long getId() {
-		return id;
+	public Long getCod_prato() {
+		return cod_prato;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setCod_prato(Long cod_prato) {
+		this.cod_prato = cod_prato;
 	}
 
 	public String getNome() {
