@@ -13,6 +13,7 @@ import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.repository.CardapioRepository;
 import com.projeto.ufc.repository.PratoRepository;
+import com.projeto.ufc.repository.UsuarioRepository;
 
 @Service
 public class GerenteService {
@@ -21,6 +22,9 @@ public class GerenteService {
 	
 	@Autowired
 	private CardapioRepository cardapioRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
 	
 	
 
@@ -44,15 +48,17 @@ public class GerenteService {
 	}
 
 	public void adicionarFuncionario(Usuario usuario) {
-
+		 usuario.setId(null);
+		 usuarioRepository.save(usuario);
 	}
 
-	public void deletarFuncionario(Usuario usuario) {
-
+	public void deletarFuncionario(@PathVariable("id") Long id) {
+			usuarioRepository.delete(id);
 	}
 
 	public List<Usuario> retornarTodosFuncionarios(Long restaurante) {
-		return null;
+		return usuarioRepository.findByRestauranteLike(restaurante);
+		
 	}
 
 }
