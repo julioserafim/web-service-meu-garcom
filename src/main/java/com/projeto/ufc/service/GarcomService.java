@@ -4,17 +4,20 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.projeto.ufc.domain.Pedido;
 import com.projeto.ufc.domain.Prato;
 
 @Service
 public class GarcomService {
+	
+	
 
-	public List<Prato> listarPratosParaPreparo() {
+	public List<Pedido> listarPedidoProntosEntrega() {
 		return null;
 	}
 
-	public void deletar(Prato prato) {
-
+	public void deletar(Long id) {
+		
 	}
 
 	

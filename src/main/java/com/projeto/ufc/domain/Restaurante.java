@@ -22,11 +22,11 @@ public class Restaurante {
 	
 	private String nome;
 	
-	private Long latitude;
+	private double latitude;
 	
 	private int quantidadeMesa;
 	
-	private Long logitude;
+	private double logitude;
 
 
 	public Long getId() {
@@ -45,14 +45,6 @@ public class Restaurante {
 		this.nome = nome;
 	}
 
-	public Long getLatitude() {
-		return latitude;
-	}
-
-	public void setLatitude(Long latitude) {
-		this.latitude = latitude;
-	}
-
 	public int getQuantidadeMesa() {
 		return quantidadeMesa;
 	}
@@ -61,14 +53,21 @@ public class Restaurante {
 		this.quantidadeMesa = quantidadeMesa;
 	}
 
-	public Long getLogitude() {
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLogitude() {
 		return logitude;
 	}
 
-	public void setLogitude(Long logitude) {
+	public void setLogitude(double logitude) {
 		this.logitude = logitude;
 	}
-	
-	
+
 	
 }

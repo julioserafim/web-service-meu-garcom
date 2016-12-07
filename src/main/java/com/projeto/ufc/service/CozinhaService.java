@@ -2,23 +2,31 @@ package com.projeto.ufc.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projeto.ufc.domain.Pedido;
 import com.projeto.ufc.domain.Prato;
+import com.projeto.ufc.repository.PedidoRepository;
 
 @Service
 public class CozinhaService {
 	
-	public List<Prato> listarPratosParaPreparo(){
-		return null;
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	
+	
+	
+	public List<Pedido> listarPedidosParaPreparo(){
+		return pedidoRepository.findAll();
 	}
 	
 	public void adicionarPedido(Pedido pedido){
-		
+		pedido.setId(null);
+		pedidoRepository.save(pedido);
 	}
 	
-	public void deletar(Prato prato){
+	public void deletar(Prato prato){ // quando deletar aqui colocar nos prontos pro garçom
 		
 	}
 

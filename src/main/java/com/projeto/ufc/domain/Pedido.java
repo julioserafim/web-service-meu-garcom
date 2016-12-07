@@ -21,7 +21,7 @@ public class Pedido {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
+	private Long id;
 	
 	private Cliente cliente;
 	
@@ -29,16 +29,15 @@ public class Pedido {
 	
 	private Long restaurante;
 	
-	private List<Prato> pratos;
+	private Prato pratos;
 	
 	
-	public Long getCodigo() {
-		return codigo;
+	public Long getId() {
+		return id;
 	}
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setId(Long id) {
+		this.id = id;
 	}
-	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -57,12 +56,11 @@ public class Pedido {
 	public void setRestaurante(Long restaurante) {
 		this.restaurante = restaurante;
 	}
-	public List<Prato> getPratos() {
+	public Prato getPratos() {
 		return pratos;
 	}
-	public void setPratos(List<Prato> pratos) {
+	public void setPratos(Prato pratos) {
 		this.pratos = pratos;
 	}
 	
-
 }

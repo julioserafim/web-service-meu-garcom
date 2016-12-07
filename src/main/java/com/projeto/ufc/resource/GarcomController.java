@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.projeto.ufc.domain.Pedido;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.service.GarcomService;
 
@@ -18,13 +19,13 @@ public class GarcomController {
 	private GarcomService garcomService;
 	
 	@RequestMapping(method = RequestMethod.GET,produces="application/json")
-	public List<Prato> listarPratosProntos(Long restaurante){
-		return garcomService.listarPratosParaPreparo();
+	public List<Pedido> listarPratosProntos(Long restaurante){
+		return garcomService.listarPedidoProntosEntrega();
 	}
 	
 	@RequestMapping(value = "/prato",method = RequestMethod.POST,consumes="application/json")
-	public String deletarPedidoPratos(@RequestBody Prato prato,@PathVariable("id") Long restaurante){
-		garcomService.deletar(prato);
+	public String deletarPedidoPratosProntosEntrega(@PathVariable("id") Long pedido){
+		garcomService.deletar(pedido);
 		return "Deletado com sucesso";
 	}
 }

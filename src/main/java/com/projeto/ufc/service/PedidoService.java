@@ -13,7 +13,7 @@ public class PedidoService {
 	PedidoRepository pedidoRepository;
 	
 	public void salvar(Pedido pedido){
-		pedido.setCodigo(null);
+		pedido.setId(null);
 		pedidoRepository.save(pedido);
 	}
 	

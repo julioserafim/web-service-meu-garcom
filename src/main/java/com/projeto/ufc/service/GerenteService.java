@@ -38,7 +38,7 @@ public class GerenteService {
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void deletarPrato(@PathVariable("id") Long id, Long restaurante) {
+	public void deletarPrato(@PathVariable("id") Long id) {
 		pratoRepository.delete(id);	
 	}
 

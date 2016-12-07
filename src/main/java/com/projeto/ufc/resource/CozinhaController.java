@@ -14,6 +14,7 @@ import com.projeto.ufc.domain.Pedido;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Restaurante;
 import com.projeto.ufc.service.CozinhaService;
+import com.projeto.ufc.service.PedidoService;
 import com.projeto.ufc.service.RestauranteService;
 
 @RestController
@@ -21,11 +22,12 @@ import com.projeto.ufc.service.RestauranteService;
 public class CozinhaController {
 
 	@Autowired
-	CozinhaService cozinhaService;
+	private CozinhaService cozinhaService;
+	
 	
 	@RequestMapping(method = RequestMethod.GET,produces="application/json")
-	public List<Prato> listarPratosASeremPreparados(){
-		return cozinhaService.listarPratosParaPreparo();
+	public List<Pedido> listarPratosASeremPreparados(){
+		return cozinhaService.listarPedidosParaPreparo();
 	}; 
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.POST,consumes="application/json")
@@ -37,7 +39,7 @@ public class CozinhaController {
 	@RequestMapping(value = "/prato",method = RequestMethod.POST,consumes="application/json")
 	public String deletarPedidoPratos(@RequestBody Prato prato,@PathVariable("id") Long restaurante){
 		cozinhaService.deletar(prato);
-		return "Salvo com sucesso";
+		return "Deletado com sucesso";
 	}
 	
 	
