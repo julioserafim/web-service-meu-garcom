@@ -26,8 +26,6 @@ public class Cardapio {
 	@JoinColumn(name = "cod_prato")
 	private List<Prato> prato;
 	
-	private Long restaurante;
-
 	public Long getId() {
 		return id;
 	}
@@ -35,16 +33,6 @@ public class Cardapio {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public Long getRestaurante() {
-		return restaurante;
-	}
-
-	public void setRestaurante(Long restaurante) {
-		this.restaurante = restaurante;
-	}
-
-	
 
 	public List<Prato> getPrato() {
 		return prato;
@@ -60,7 +48,6 @@ public class Cardapio {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((prato == null) ? 0 : prato.hashCode());
-		result = prime * result + ((restaurante == null) ? 0 : restaurante.hashCode());
 		return result;
 	}
 
@@ -83,14 +70,8 @@ public class Cardapio {
 				return false;
 		} else if (!prato.equals(other.prato))
 			return false;
-		if (restaurante == null) {
-			if (other.restaurante != null)
-				return false;
-		} else if (!restaurante.equals(other.restaurante))
-			return false;
 		return true;
 	}
-	
-	
+
 
 }

@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.ufc.domain.Cardapio;
 import com.projeto.ufc.domain.Prato;
-import com.projeto.ufc.domain.Restaurante;
 import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.service.GerenteService;
-import com.projeto.ufc.service.RestauranteService;
 import com.projeto.ufc.service.UsuarioService;
 
 @RestController
@@ -26,8 +24,8 @@ public class GerenteController {
 	private UsuarioService usuarioService;
 	
 	@RequestMapping(value = "/{id}",method = RequestMethod.POST,consumes="application/json")
-	public String adicionarPratoGerente(@RequestBody Prato prato, Long restaurante){
-		gerenteService.adicionarPrato(prato, restaurante);
+	public String adicionarPratoGerente(@RequestBody Prato prato){
+		gerenteService.adicionarPrato(prato);
 		return "Salvo com sucesso";
 	}
 	
@@ -52,14 +50,14 @@ public class GerenteController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET,produces="application/json")
-	public List<Usuario> listarUsuario(Long restaurante){
-		return gerenteService.retornarTodosFuncionarios(restaurante);
+	public List<Usuario> listarUsuario(){
+		return gerenteService.retornarTodosFuncionarios();
 	}; 
 	
 	
 	@RequestMapping(value = "/cardapio/",method = RequestMethod.GET,produces="application/json")
-	public Cardapio retornarCardarpioRestaurante(Long restaurante){
-		return gerenteService.retornarCardapioRestaurante(restaurante);
+	public Cardapio retornarCardarpio(Long id){
+		return gerenteService.retornarCardapio(id);
 	}; 
 	
 	

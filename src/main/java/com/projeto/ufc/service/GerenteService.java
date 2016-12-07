@@ -32,7 +32,7 @@ public class GerenteService {
 		return null;
 	}
 
-	public void adicionarPrato(Prato prato, Long restaurante) {
+	public void adicionarPrato(Prato prato) {
 		prato.setId(null);
 		pratoRepository.save(prato);
 	}
@@ -42,8 +42,8 @@ public class GerenteService {
 		pratoRepository.delete(id);	
 	}
 
-	public Cardapio retornarCardapioRestaurante(Long restaurante) {
-			Cardapio cardapio = cardapioRepository.findByRestauranteLike(restaurante);
+	public Cardapio retornarCardapio(@PathVariable("id") Long id) {
+			Cardapio cardapio = cardapioRepository.findOne(id);
 			return cardapio;
 	}
 
@@ -56,8 +56,8 @@ public class GerenteService {
 			usuarioRepository.delete(id);
 	}
 
-	public List<Usuario> retornarTodosFuncionarios(Long restaurante) {
-		return usuarioRepository.findByRestauranteLike(restaurante);
+	public List<Usuario> retornarTodosFuncionarios() {
+		return usuarioRepository.findAll();
 		
 	}
 

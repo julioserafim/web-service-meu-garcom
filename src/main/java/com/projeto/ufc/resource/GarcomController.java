@@ -19,7 +19,7 @@ public class GarcomController {
 	private GarcomService garcomService;
 	
 	@RequestMapping(method = RequestMethod.GET,produces="application/json")
-	public List<Pedido> listarPratosProntos(Long restaurante){
+	public List<Pedido> listarPratosProntos(){
 		return garcomService.listarPedidoProntosEntrega();
 	}
 	

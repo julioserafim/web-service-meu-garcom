@@ -21,8 +21,6 @@ public class Usuario {
 	private String cargo;
 	private String login;
 	private String senha;
-	private Long restaurante;
-	
 	
 	public Long getId() {
 		return id;
@@ -54,19 +52,7 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public Long getRestaurante() {
-		return restaurante;
-	}
-	public void setRestaurante(Long restaurante) {
-		this.restaurante = restaurante;
-	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 
 }
