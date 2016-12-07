@@ -33,7 +33,7 @@ public class GerenteService {
 	}
 
 	public void adicionarPrato(Prato prato) {
-		prato.setCod_prato(null);
+		prato.setId(null);
 		pratoRepository.save(prato);
 	}
 	
