@@ -15,7 +15,7 @@ public class RestauranteService {
 	RestauranteRepository restauranteRepository;
 
 	public void salvar(Restaurante restaurante){
-		restaurante.setCodigo(null);
+		restaurante.setId(null);
 		restauranteRepository.save(restaurante);
 	}
 	

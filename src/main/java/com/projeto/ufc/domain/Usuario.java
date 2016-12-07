@@ -6,69 +6,67 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
-@Table(name = "restaurante")
-public class Restaurante {
+@Table(name = "usuario")
+public class Usuario {
 	
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
 	private String nome;
+	private String cargo;
+	private String login;
+	private String senha;
+	private Long restaurante;
 	
-	private Long latitude;
 	
-	private int quantidadeMesa;
-	
-	private Long logitude;
-
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Long getLatitude() {
-		return latitude;
+	public String getCargo() {
+		return cargo;
 	}
-
-	public void setLatitude(Long latitude) {
-		this.latitude = latitude;
+	public void setCargo(String cargo) {
+		this.cargo = cargo;
 	}
-
-	public int getQuantidadeMesa() {
-		return quantidadeMesa;
+	public String getLogin() {
+		return login;
 	}
-
-	public void setQuantidadeMesa(int quantidadeMesa) {
-		this.quantidadeMesa = quantidadeMesa;
+	public void setLogin(String login) {
+		this.login = login;
 	}
-
-	public Long getLogitude() {
-		return logitude;
+	public String getSenha() {
+		return senha;
 	}
-
-	public void setLogitude(Long logitude) {
-		this.logitude = logitude;
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public Long getRestaurante() {
+		return restaurante;
+	}
+	public void setRestaurante(Long restaurante) {
+		this.restaurante = restaurante;
 	}
 	
 	
 	
+	
+	
+	
+	
+	
+
 }

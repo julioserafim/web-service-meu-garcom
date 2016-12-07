@@ -23,14 +23,13 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
-	private String cliente;
+	private Cliente cliente;
 	
 	private int mesa;
 	
 	private Long restaurante;
 	
-	/*@OneToMany
-	private List<Long> pratos;*/
+	private List<Prato> pratos;
 	
 	
 	public Long getCodigo() {
@@ -39,10 +38,11 @@ public class Pedido {
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-	public String getCliente() {
+	
+	public Cliente getCliente() {
 		return cliente;
 	}
-	public void setCliente(String cliente) {
+	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 	public int getMesa() {
@@ -57,15 +57,12 @@ public class Pedido {
 	public void setRestaurante(Long restaurante) {
 		this.restaurante = restaurante;
 	}
-	
-	/*public List<Long> getPratos() {
+	public List<Prato> getPratos() {
 		return pratos;
 	}
-	public void setPratos(List<Long> pratos) {
+	public void setPratos(List<Prato> pratos) {
 		this.pratos = pratos;
-	}*/
-	
-	
+	}
 	
 
 }
