@@ -14,7 +14,7 @@ import com.projeto.ufc.service.PedidoService;
 public class PedidoController {
 	
 	@Autowired
-	PedidoService pedidoService;
+	private PedidoService pedidoService;
 	
 	@RequestMapping(method = RequestMethod.POST,consumes="application/json")
 	public void salvarPedido(@RequestBody Pedido pedido){

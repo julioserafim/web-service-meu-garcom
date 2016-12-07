@@ -5,6 +5,9 @@ import java.security.NoSuchAlgorithmException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.ResponseEntity.BodyBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +25,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST,consumes="application/json")
-	public String realizarLogin(String login, String senha, String cargo, HttpSession session) throws NoSuchAlgorithmException{
+	public BodyBuilder realizarLogin(String login, String senha, String cargo, HttpSession session) throws NoSuchAlgorithmException{
 		
 		Usuario usuario = usuarioDAO.findByLoginLike(login);
 		String senhaCriptografada = Criptografia.convertPasswordToMD5(senha);
@@ -31,23 +34,23 @@ public class LoginController {
 			
 			if(cargo == "gerente"){
 				session.setAttribute("gerenteLogado",cargo);
-				return"redirect:/gerenteHome";	// Tela gerente
+				return ResponseEntity.status(HttpStatus.OK);
 				
 			}
 			
 			if(cargo == "garcom"){
 				session.setAttribute("leitorLogado",cargo);
-				return"redirect:/garcomHome"; // Tela Garcom
+				return ResponseEntity.status(HttpStatus.OK);
 			}
 			
 			else{ // É funcionario da cozinha
 				session.setAttribute("cozinhaLogado",cargo);
-				return"redirect:/cozinhaHome";	//Tela cozinha
+				return ResponseEntity.status(HttpStatus.OK);
 			}
 			
 		}
 		
-		return"Home"; // tela login
+		return ResponseEntity.status(HttpStatus.FAILED_DEPENDENCY);
 
 	}
 }
