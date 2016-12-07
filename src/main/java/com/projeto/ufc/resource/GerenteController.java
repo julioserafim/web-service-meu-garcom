@@ -45,7 +45,7 @@ public class GerenteController {
 	}
 	
 	
-	@RequestMapping(method = RequestMethod.DELETE,consumes="application/json")
+	@RequestMapping(value = "/funcionario/",method = RequestMethod.DELETE,consumes="application/json")
 	public String removerFuncionario(Long id){
 		usuarioService.removerUsuario(id);
 		return "Salvo com sucesso";
@@ -57,7 +57,7 @@ public class GerenteController {
 	}; 
 	
 	
-	@RequestMapping(method = RequestMethod.GET,produces="application/json")
+	@RequestMapping(value = "/cardapio/",method = RequestMethod.GET,produces="application/json")
 	public Cardapio retornarCardarpioRestaurante(Long restaurante){
 		return gerenteService.retornarCardapioRestaurante(restaurante);
 	}; 
