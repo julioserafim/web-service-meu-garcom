@@ -23,7 +23,7 @@ public class Pedido {
 	private int mesa;
 		
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "prato_id")
 	private Prato prato;
 	
 	public Prato getPrato() {

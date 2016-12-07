@@ -13,7 +13,7 @@ import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.service.CozinhaService;
 
 @RestController
-@RequestMapping("cozinha/pedido")
+@RequestMapping("/cozinha")
 public class CozinhaController {
 
 	@Autowired
@@ -24,10 +24,10 @@ public class CozinhaController {
 		return cozinhaService.listarPedidosParaPreparo();
 	};
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(value = "/pedido", method = RequestMethod.POST, consumes = "application/json")
 	public String adicionaPedidoPratos(@RequestBody Pedido pedido) {
 		cozinhaService.adicionarPedido(pedido);
-		return "Salvo com sucesso";
+		return "Pedido Salvo com sucesso";
 	}
 
 	@RequestMapping(value = "/prato", method = RequestMethod.POST, consumes = "application/json")
