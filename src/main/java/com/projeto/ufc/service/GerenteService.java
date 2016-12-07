@@ -42,9 +42,9 @@ public class GerenteService {
 		pratoRepository.delete(id);	
 	}
 
-	public Cardapio retornarCardapio(@PathVariable("id") Long id) {
-			Cardapio cardapio = cardapioRepository.findOne(id);
-			return cardapio;
+	public List<Prato> retornarCardapio() {
+			return pratoRepository.findAll();
+			
 	}
 
 	public void adicionarFuncionario(Usuario usuario) {

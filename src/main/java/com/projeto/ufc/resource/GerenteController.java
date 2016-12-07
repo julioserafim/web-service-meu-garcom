@@ -30,10 +30,10 @@ public class GerenteController {
 		return "Salvo com sucesso";
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE,consumes="application/json")
+	@RequestMapping(value = "/prato/{id}",method = RequestMethod.DELETE,consumes="application/json")
 	public String removerPrato(@PathVariable("id")Long id){
 		gerenteService.deletarPrato(id);
-		return "Salvo com sucesso";
+		return "Deletado com sucesso";
 	}
 	
 	
@@ -53,15 +53,14 @@ public class GerenteController {
 	@RequestMapping(value = "/funcionario",method = RequestMethod.GET,produces="application/json")
 	public List<Usuario> listarUsuario(){
 		return gerenteService.retornarTodosFuncionarios();
-	}; 
+	} 
 	
 	
-	@RequestMapping(value = "/cardapio/",method = RequestMethod.GET,produces="application/json")
-	public Cardapio retornarCardarpio(Long id){
-		return gerenteService.retornarCardapio(id);
-	}; 
+	@RequestMapping(value = "/cardapio",method = RequestMethod.GET,produces="application/json")
+	public List<Prato> retornarCardarpio(){
+		return gerenteService.retornarCardapio();
+	}
 	
 	
 	
-
 }
