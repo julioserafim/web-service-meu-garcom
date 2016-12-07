@@ -50,7 +50,7 @@ public class LoginController {
 			
 		}
 		
-		return ResponseEntity.status(HttpStatus.FAILED_DEPENDENCY);
+		return ResponseEntity.status(HttpStatus.UNAUTHORIZED);
 
 	}
 }
