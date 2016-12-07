@@ -19,23 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projeto.ufc.domain.Restaurante;
 import com.projeto.ufc.service.RestauranteService;
 
-/*
-uma lista de restaurantes cadastrados no nosso sistema
- 
-o cardapio do restaurante selecionado pelo cliente
-
-o webservice deve estar apto para receber um pedido*/
-
-
-
-
 @RestController
 @RequestMapping("/restaurante")
 public class RestauranteController {
 	
 	
 	@Autowired
-	RestauranteService restauranteService;
+	private RestauranteService restauranteService;
 	
 	@RequestMapping(method = RequestMethod.GET,produces="application/json")
 	public List<Restaurante> listarRestaurantes(){

@@ -16,7 +16,7 @@ public class Prato {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
+	private Long id;
 	
 	private String nome;
 	
@@ -25,12 +25,12 @@ public class Prato {
 	private double preco;
 	
 
-	public Long getCodigo() {
-		return codigo;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
