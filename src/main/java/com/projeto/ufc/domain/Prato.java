@@ -24,6 +24,8 @@ public class Prato {
 	
 	private double preco;
 	
+	
+	
 	public Long getCod_prato() {
 		return cod_prato;
 	}

@@ -3,6 +3,7 @@ package com.projeto.ufc.resource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,28 +24,28 @@ public class GerenteController {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@RequestMapping(value = "/prato/",method = RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value = "/prato",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarPratoGerente(@RequestBody Prato prato){
 		gerenteService.adicionarPrato(prato);
 		return "Salvo com sucesso";
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE,consumes="application/json")
-	public String removerPrato(Long id){
+	public String removerPrato(@PathVariable("id")Long id){
 		gerenteService.deletarPrato(id);
 		return "Salvo com sucesso";
 	}
 	
 	
-	@RequestMapping(value = "/funcionario/",method = RequestMethod.POST,consumes="application/json")
+	@RequestMapping(value = "/funcionario",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarFuncionario(@RequestBody Usuario usuario){
 		usuarioService.adicionarUsuario(usuario);
 		return "Salvo com sucesso";
 	}
 	
 	
-	@RequestMapping(value = "/funcionario/",method = RequestMethod.DELETE,consumes="application/json")
-	public String removerFuncionario(Long id){
+	@RequestMapping(value = "/funcionario/{id}",method = RequestMethod.DELETE,consumes="application/json")
+	public String removerFuncionario(@PathVariable("id")Long id){
 		usuarioService.removerUsuario(id);
 		return "Salvo com sucesso";
 	}
