@@ -1,0 +1,49 @@
+package com.projeto.ufc.domain;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@Entity
+@Table(name = "pedido_cozinha")
+public class PedidoCozinha implements Pedido{
+	
+	@JsonInclude(Include.NON_NULL)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+		
+	private int mesa;
+		
+	@JoinColumn(name = "prato_id")
+	private Long prato_id;
+
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getPrato_id() {
+		return prato_id;
+	}
+	public void setPrato_id(Long prato_id) {
+		this.prato_id = prato_id;
+	}
+	
+	public int getMesa() {
+		return mesa;
+	}
+	public void setMesa(int mesa) {
+		this.mesa = mesa;
+	}
+	
+}

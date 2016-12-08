@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.projeto.ufc.domain.Pedido;
-import com.projeto.ufc.domain.Prato;
-import com.projeto.ufc.repository.PedidoRepository;
+import com.projeto.ufc.domain.PedidoCozinha;
 import com.projeto.ufc.repository.PedidoRepositoryCozinha;
 import com.projeto.ufc.repository.PedidoRepositoryGarcom;
 
@@ -22,18 +21,18 @@ public class CozinhaService {
 	private PedidoRepositoryGarcom pedidoRepositoryGarcom;
 	
 	
-	public List<Pedido> listarPedidosParaPreparo(){
+	public List<PedidoCozinha> listarPedidosParaPreparo(){
 		return pedidoRepositoryCozinha.findAll();
 	}
 	
-	public void adicionarPedido(Pedido pedido){
-		pedido.setId(null);
-		pedidoRepositoryCozinha.save(pedido);
+	public void adicionarPedido(PedidoCozinha pedidoCozinha){
+		pedidoCozinha.setId(null);
+		pedidoRepositoryCozinha.save(pedidoCozinha);
 	}
 	
 	public void deletar(@PathVariable("id") Long id){ // quando deletar aqui colocar nos prontos pro garçom
-		Pedido pedido = pedidoRepositoryCozinha.findOne(id);
-		pedidoRepositoryGarcom.save(pedido);
+		PedidoCozinha pedidoCozinha = pedidoRepositoryCozinha.findOne(id);
+		pedidoRepositoryGarcom.save(pedidoCozinha);
 		pedidoRepositoryCozinha.delete(id);
 	}
 	

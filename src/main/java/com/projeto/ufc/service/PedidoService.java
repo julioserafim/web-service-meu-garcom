@@ -1,4 +1,4 @@
-package com.projeto.ufc.service;
+/*package com.projeto.ufc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,3 +19,4 @@ public class PedidoService {
 	
 
 }
+*/

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.ufc.domain.Pedido;
+import com.projeto.ufc.domain.PedidoCozinha;
 import com.projeto.ufc.service.CozinhaService;
 
 @RestController
@@ -20,12 +21,12 @@ public class CozinhaController {
 	private CozinhaService cozinhaService;
 
 	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
-	public List<Pedido> listarPratosASeremPreparados() {
+	public List<PedidoCozinha> listarPratosASeremPreparados() {
 		return cozinhaService.listarPedidosParaPreparo();
 	}
 
 	@RequestMapping(value = "/pedido", method = RequestMethod.POST, consumes = "application/json")
-	public String adicionaPedidoPratos(@RequestBody Pedido pedido) {
+	public String adicionaPedidoPratos(@RequestBody PedidoCozinha pedido) {
 		cozinhaService.adicionarPedido(pedido);
 		return "Pedido Salvo com sucesso";
 	}

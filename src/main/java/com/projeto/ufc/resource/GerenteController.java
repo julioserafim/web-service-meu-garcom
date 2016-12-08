@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.ufc.domain.Cardapio;
+import com.projeto.ufc.domain.PedidoGerente;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.service.GerenteService;
@@ -62,6 +63,12 @@ public class GerenteController {
 	@RequestMapping(value = "/cardapio",method = RequestMethod.GET,produces="application/json")
 	public List<Prato> retornarCardarpio(){
 		return gerenteService.retornarCardapio();
+	}
+	
+	@RequestMapping(value = "/pedido",method = RequestMethod.POST,consumes="application/json")
+	public String retornarPedidosGerente(@RequestBody PedidoGerente pedidoGerente){
+		gerenteService.listarPedidosFinalizados(pedidoGerente);
+		return "Salvo com sucesso";
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.projeto.ufc.resource;
+/*package com.projeto.ufc.resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,3 +22,4 @@ public class PedidoController {
 	}
 
 }
+*/

@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.projeto.ufc.domain.Cardapio;
+import com.projeto.ufc.domain.PedidoGerente;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.repository.CardapioRepository;
+import com.projeto.ufc.repository.PedidoRepositoryGerente;
 import com.projeto.ufc.repository.PratoRepository;
 import com.projeto.ufc.repository.UsuarioRepository;
 
@@ -26,10 +27,13 @@ public class GerenteService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private PedidoRepositoryGerente gerenteRepository;
+	
 	
 
-	public List<Prato> listarPratosFinalizados(Prato prato) {
-		return null;
+	public List<PedidoGerente> listarPedidosFinalizados(PedidoGerente pedidoGerente) {
+		return gerenteRepository.findAll();
 	}
 
 	public void adicionarPrato(Prato prato) {
