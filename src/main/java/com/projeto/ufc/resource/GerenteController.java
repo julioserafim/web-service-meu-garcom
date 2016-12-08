@@ -1,5 +1,7 @@
 package com.projeto.ufc.resource;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,27 +35,27 @@ public class GerenteController {
 		return "Salvo com sucesso";
 	}
 	
-	@RequestMapping(value = "/prato/{id}",method = RequestMethod.DELETE,consumes="application/json")
+	@CrossOrigin(methods=RequestMethod.DELETE)
+	@RequestMapping(value = "/prato/{id}",method = RequestMethod.DELETE)
 	public String removerPrato(@PathVariable("id")Long id){
 		gerenteService.deletarPrato(id);
 		return "Deletado com sucesso";
 	}
 	
-	@CrossOrigin
+	
 	@RequestMapping(value = "/funcionario",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarFuncionario(@RequestBody Usuario usuario){
 		usuarioService.adicionarUsuario(usuario);
 		return "Salvo com sucesso";
 	}
 	
-	
-	@RequestMapping(value = "/funcionario/{id}",method = RequestMethod.DELETE,consumes="application/json")
+	@CrossOrigin(methods=RequestMethod.DELETE)
+	@RequestMapping(value = "/funcionario/{id}",method = RequestMethod.DELETE)
 	public String removerFuncionario(@PathVariable("id")Long id){
 		usuarioService.removerUsuario(id);
 		return "Salvo com sucesso";
 	}
 	
-	@CrossOrigin
 	@RequestMapping(value = "/funcionario",method = RequestMethod.GET,produces="application/json")
 	public List<Usuario> listarUsuario(){
 		return gerenteService.retornarTodosFuncionarios();

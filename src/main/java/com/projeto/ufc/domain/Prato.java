@@ -25,7 +25,6 @@ public class Prato {
 	private double preco;
 	
 	
-	
 	public Long getId() {
 		return id;
 	}

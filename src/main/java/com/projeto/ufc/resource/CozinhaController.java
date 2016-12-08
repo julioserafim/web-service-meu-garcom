@@ -3,6 +3,7 @@ package com.projeto.ufc.resource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import com.projeto.ufc.domain.Pedido;
 import com.projeto.ufc.domain.PedidoCozinha;
 import com.projeto.ufc.service.CozinhaService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cozinha")
 public class CozinhaController {
@@ -30,8 +32,9 @@ public class CozinhaController {
 		cozinhaService.adicionarPedido(pedido);
 		return "Pedido Salvo com sucesso";
 	}
-
-	@RequestMapping(value = "/pedido/{id}", method = RequestMethod.DELETE, consumes = "application/json")
+	
+	@CrossOrigin(methods=RequestMethod.DELETE)
+	@RequestMapping(value = "/pedido/{id}", method = RequestMethod.DELETE)
 	public String deletarPedidoPratos(@PathVariable("id")Long id) {
 		cozinhaService.deletar(id);
 		return "Deletado com sucesso";
