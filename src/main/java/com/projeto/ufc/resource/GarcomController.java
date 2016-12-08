@@ -2,6 +2,7 @@ package com.projeto.ufc.resource;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,9 @@ import com.projeto.ufc.service.GarcomService;
 @RequestMapping("/garcom/pedido")
 public class GarcomController {
 	
+	@Autowired
 	private GarcomService garcomService;
+	
 	
 	@RequestMapping(method = RequestMethod.GET,produces="application/json")
 	public List<PedidoGarcom> listarPratosProntos(){
@@ -24,7 +27,7 @@ public class GarcomController {
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
-	@RequestMapping(method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
 	public String deletarPedidoPratosProntosEntrega(@PathVariable("id") Long pedido){
 		garcomService.deletar(pedido);
 		return "Deletado com sucesso";

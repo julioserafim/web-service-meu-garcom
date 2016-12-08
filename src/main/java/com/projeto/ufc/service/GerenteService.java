@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.projeto.ufc.domain.PedidoGarcom;
 import com.projeto.ufc.domain.PedidoGerente;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
@@ -28,12 +29,12 @@ public class GerenteService {
 	private UsuarioRepository usuarioRepository;
 	
 	@Autowired
-	private PedidoRepositoryGerente gerenteRepository;
+	private PedidoRepositoryGerente pedidoGerenteRepository;
 	
 	
 
 	public List<PedidoGerente> listarPedidosFinalizados(PedidoGerente pedidoGerente) {
-		return gerenteRepository.findAll();
+		return pedidoGerenteRepository.findAll();
 	}
 
 	public void adicionarPrato(Prato prato) {
@@ -63,6 +64,15 @@ public class GerenteService {
 	public List<Usuario> retornarTodosFuncionarios() {
 		return usuarioRepository.findAll();
 		
+	}
+	
+	public void adicionarPedidoFinalizado(PedidoGarcom pedidoGarcom) {
+		PedidoGerente pedidoGerente = new PedidoGerente();
+		pedidoGerente.setId(pedidoGarcom.getId());
+		pedidoGerente.setMesa(pedidoGarcom.getMesa());
+		pedidoGerente.setPrato_id(pedidoGarcom.getPrato_id());
+	
+		pedidoGerenteRepository.save(pedidoGerente);
 	}
 
 }

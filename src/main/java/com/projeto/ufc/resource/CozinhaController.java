@@ -16,7 +16,7 @@ import com.projeto.ufc.service.CozinhaService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/cozinha")
+@RequestMapping("/cozinha/pedido")
 public class CozinhaController {
 
 	@Autowired
@@ -27,15 +27,15 @@ public class CozinhaController {
 		return cozinhaService.listarPedidosParaPreparo();
 	}
 
-	@RequestMapping(value = "/pedido", method = RequestMethod.POST, consumes = "application/json")
+	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public String adicionaPedidoPratos(@RequestBody PedidoCozinha pedido) {
 		cozinhaService.adicionarPedido(pedido);
 		return "Pedido Salvo com sucesso";
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
-	@RequestMapping(value = "/pedido/{id}", method = RequestMethod.DELETE)
-	public String deletarPedidoPratos(@PathVariable("id")Long id) {
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public String deletarPedidoPrato(@PathVariable("id")Long id) {
 		cozinhaService.deletar(id);
 		return "Deletado com sucesso";
 	}

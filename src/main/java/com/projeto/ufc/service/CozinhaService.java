@@ -18,7 +18,7 @@ public class CozinhaService {
 	private PedidoRepositoryCozinha pedidoRepositoryCozinha;
 	
 	@Autowired
-	private PedidoRepositoryGarcom pedidoRepositoryGarcom;
+	private GarcomService garcomService;
 	
 	
 	public List<PedidoCozinha> listarPedidosParaPreparo(){
@@ -32,11 +32,9 @@ public class CozinhaService {
 	
 	public void deletar(@PathVariable("id") Long id){ // quando deletar aqui colocar nos prontos pro garçom
 		PedidoCozinha pedidoCozinha = pedidoRepositoryCozinha.findOne(id);
-		pedidoRepositoryGarcom.save(pedidoCozinha);
+		garcomService.adicionarPedidoGarcom(pedidoCozinha);
 		pedidoRepositoryCozinha.delete(id);
-	
 	}
 	
 	
-
 }

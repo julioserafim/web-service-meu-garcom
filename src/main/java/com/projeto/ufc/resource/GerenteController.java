@@ -1,6 +1,5 @@
 package com.projeto.ufc.resource;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
 
 import java.util.List;
 
