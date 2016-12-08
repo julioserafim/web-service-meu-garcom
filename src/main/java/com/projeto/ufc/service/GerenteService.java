@@ -33,7 +33,7 @@ public class GerenteService {
 	
 	
 
-	public List<PedidoGerente> listarPedidosFinalizados(PedidoGerente pedidoGerente) {
+	public List<PedidoGerente> listarPedidosFinalizados() {
 		return pedidoGerenteRepository.findAll();
 	}
 

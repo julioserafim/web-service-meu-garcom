@@ -39,6 +39,13 @@ public class GarcomService {
 		gerenteService.adicionarPedidoFinalizado(pedidoGarcom);
 		pedidoRepositoryGarcom.delete(id);
 	}
+	
+	public long retornarQuantidadePedido(){
+		long quantidade;
+		quantidade = pedidoRepositoryGarcom.count();
+		
+		return quantidade;
+	}
 
 	
 }

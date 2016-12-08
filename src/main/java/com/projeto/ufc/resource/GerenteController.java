@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.projeto.ufc.domain.Cardapio;
+import com.projeto.ufc.domain.PedidoCozinha;
 import com.projeto.ufc.domain.PedidoGerente;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
@@ -31,28 +32,28 @@ public class GerenteController {
 	@RequestMapping(value = "/prato",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarPratoGerente(@RequestBody Prato prato){
 		gerenteService.adicionarPrato(prato);
-		return "Salvo com sucesso";
+		return "{msg:OK}";
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
 	@RequestMapping(value = "/prato/{id}",method = RequestMethod.DELETE)
 	public String removerPrato(@PathVariable("id")Long id){
 		gerenteService.deletarPrato(id);
-		return "Deletado com sucesso";
+		return "{msg:OK}";
 	}
 	
 	
 	@RequestMapping(value = "/funcionario",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarFuncionario(@RequestBody Usuario usuario){
 		usuarioService.adicionarUsuario(usuario);
-		return "Salvo com sucesso";
+		return "{msg:OK}";
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
 	@RequestMapping(value = "/funcionario/{id}",method = RequestMethod.DELETE)
 	public String removerFuncionario(@PathVariable("id")Long id){
 		usuarioService.removerUsuario(id);
-		return "Salvo com sucesso";
+		return "{msg:OK}";
 	}
 	
 	@RequestMapping(value = "/funcionario",method = RequestMethod.GET,produces="application/json")
@@ -66,12 +67,15 @@ public class GerenteController {
 		return gerenteService.retornarCardapio();
 	}
 	
-	@RequestMapping(value = "/pedido",method = RequestMethod.POST,consumes="application/json")
-	public String retornarPedidosGerente(@RequestBody PedidoGerente pedidoGerente){
-		gerenteService.listarPedidosFinalizados(pedidoGerente);
-		return "Salvo com sucesso";
+	@RequestMapping(value = "/pedido",method = RequestMethod.GET,consumes="application/json")
+	public List<PedidoGerente> retornarPedidosGerente(){
+		return gerenteService.listarPedidosFinalizados();
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, produces = "application/json")
+	public List<PedidoGerente> listarPratosFinalizados() {
+		return gerenteService.listarPedidosFinalizados();
+	}
 	
 	
 }

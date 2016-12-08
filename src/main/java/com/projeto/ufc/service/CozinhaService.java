@@ -36,5 +36,12 @@ public class CozinhaService {
 		pedidoRepositoryCozinha.delete(id);
 	}
 	
+	public long retornarQuantidadePedido(){
+		long quantidade;
+		quantidade = pedidoRepositoryCozinha.count();
+		
+		return quantidade;
+	}
+	
 	
 }

@@ -30,14 +30,23 @@ public class CozinhaController {
 	@RequestMapping(method = RequestMethod.POST, consumes = "application/json")
 	public String adicionaPedidoPratos(@RequestBody PedidoCozinha pedido) {
 		cozinhaService.adicionarPedido(pedido);
-		return "Pedido Salvo com sucesso";
+		return "{msg:OK}";
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String deletarPedidoPrato(@PathVariable("id")Long id) {
 		cozinhaService.deletar(id);
-		return "Deletado com sucesso";
+		return "{msg:OK}";
 	}
+	
+	@RequestMapping(value = "/quantidade",method = RequestMethod.GET, produces = "application/json")
+	public String quantidade() {
+		long numero;
+		numero = cozinhaService.retornarQuantidadePedido();
+		
+		return "{quantidade:" + numero + "}";
+	}
+	
 
 }

@@ -30,6 +30,14 @@ public class GarcomController {
 	@RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
 	public String deletarPedidoPratosProntosEntrega(@PathVariable("id") Long pedido){
 		garcomService.deletar(pedido);
-		return "Deletado com sucesso";
+		return "{msg:OK}";
+	}
+	
+	@RequestMapping(value = "/quantidade",method = RequestMethod.GET, produces = "application/json")
+	public String quantidade() {
+		long numero;
+		numero = garcomService.retornarQuantidadePedido();
+		
+		return "{quantidade:" + numero + "}";
 	}
 }
