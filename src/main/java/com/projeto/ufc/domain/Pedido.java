@@ -22,15 +22,14 @@ public class Pedido {
 		
 	private int mesa;
 		
-	@OneToOne
 	@JoinColumn(name = "prato_id")
-	private Prato prato;
+	private Long prato_id;
 	
-	public Prato getPrato() {
-		return prato;
+	public Long getPrato_id() {
+		return prato_id;
 	}
-	public void setPrato(Prato prato) {
-		this.prato = prato;
+	public void setPrato(Long prato_id) {
+		this.prato_id= prato_id;
 	}
 	
 	public Long getCod_pedido() {
