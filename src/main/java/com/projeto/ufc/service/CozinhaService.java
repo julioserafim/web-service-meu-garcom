@@ -34,6 +34,7 @@ public class CozinhaService {
 		PedidoCozinha pedidoCozinha = pedidoRepositoryCozinha.findOne(id);
 		pedidoRepositoryGarcom.save(pedidoCozinha);
 		pedidoRepositoryCozinha.delete(id);
+	
 	}
 	
 	
