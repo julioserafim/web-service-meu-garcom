@@ -30,14 +30,14 @@ public class CozinhaService {
 	
 	public void adicionarPedido(PedidoCozinha pedidoCozinha){
 		pedidoCozinha.setId(null);
+		Prato prato = pratoRepository.findOne(pedidoCozinha.getPrato_id());
+		pedidoCozinha.setDescricao(prato.getDescricao());
+		pedidoCozinha.setNome(prato.getNome());
 		pedidoRepositoryCozinha.save(pedidoCozinha);
 	}
 	
 	public void deletar(@PathVariable("id") Long id){ // quando deletar aqui colocar nos prontos pro garçom
 		PedidoCozinha pedidoCozinha = pedidoRepositoryCozinha.findOne(id);
-		Prato prato = pratoRepository.findOne(pedidoCozinha.getPrato_id());
-		pedidoCozinha.setDescricao(prato.getDescricao());
-		pedidoCozinha.setNome(prato.getNome());
 		garcomService.adicionarPedidoGarcom(pedidoCozinha);
 		pedidoRepositoryCozinha.delete(id);
 	}
