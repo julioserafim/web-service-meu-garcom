@@ -33,6 +33,8 @@ public class GarcomService {
 		pedidoGarcom.setId(pedidoCozinha.getId());
 		pedidoGarcom.setMesa(pedidoCozinha.getMesa());
 		pedidoGarcom.setPrato_id(pedidoCozinha.getPrato_id());
+		pedidoGarcom.setDescricao(pedidoCozinha.getDescricao());
+		pedidoGarcom.setNome(pedidoCozinha.getNome());
 	
 		pedidoRepositoryGarcom.save(pedidoGarcom);
 		
@@ -40,9 +42,6 @@ public class GarcomService {
 
 	public void deletar(@PathVariable("id") Long id) {
 		PedidoGarcom pedidoGarcom = pedidoRepositoryGarcom.findOne(id);
-		Prato prato = pratoRepository.findOne(pedidoGarcom.getPrato_id());
-		pedidoGarcom.setDescricao(prato.getDescricao());
-		pedidoGarcom.setNome(prato.getNome());
 		gerenteService.adicionarPedidoFinalizado(pedidoGarcom);
 		pedidoRepositoryGarcom.delete(id);
 	}
