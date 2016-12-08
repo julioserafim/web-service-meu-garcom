@@ -3,8 +3,6 @@ package com.projeto.ufc.resource;
 import java.security.NoSuchAlgorithmException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +23,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST,consumes="application/json")
-	public ResponseEntity<Void> realizarLogin(@RequestBody LoginForm loginForm) throws NoSuchAlgorithmException{
+	public String realizarLogin(@RequestBody LoginForm loginForm) throws NoSuchAlgorithmException{
 		
 		System.out.println("LOGIN:" + loginForm.getLoginDigitado());
 		Usuario usuario = usuarioDAO.findByLoginLike(loginForm.getLoginDigitado());
@@ -34,21 +32,21 @@ public class LoginController {
 		if(usuario.getSenha().equals(senhaCriptografada)){ 
 			
 			if(loginForm.getCargo() == "gerente"){
-				return ResponseEntity.status(HttpStatus.OK).build();
+				return "{msg:OK}";
 				
 			}
 			
 			if(loginForm.getCargo() == "garcom"){
-				return ResponseEntity.status(HttpStatus.OK).build();
+				return "{msg:OK}";
 			}
 			
 			else{ // É funcionario da cozinha
-				return ResponseEntity.status(HttpStatus.OK).build();
+				return "{msg:OK}";
 			}
 			
 		}
 		
-		return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		return "{msg:ERROR}";
 
 	}
 }
