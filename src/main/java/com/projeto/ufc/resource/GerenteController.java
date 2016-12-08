@@ -67,7 +67,7 @@ public class GerenteController {
 		return gerenteService.retornarCardapio();
 	}
 	
-	@RequestMapping(value = "/pedido",method = RequestMethod.GET,consumes="application/json")
+	@RequestMapping(value = "/pedido",method = RequestMethod.GET,produces="application/json")
 	public List<PedidoGerente> retornarPedidosGerente(){
 		return gerenteService.listarPedidosFinalizados();
 	}
