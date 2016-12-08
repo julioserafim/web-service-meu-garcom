@@ -12,7 +12,6 @@ import com.projeto.ufc.domain.PedidoGarcom;
 import com.projeto.ufc.domain.PedidoGerente;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
-import com.projeto.ufc.repository.CardapioRepository;
 import com.projeto.ufc.repository.PedidoRepositoryGerente;
 import com.projeto.ufc.repository.PratoRepository;
 import com.projeto.ufc.repository.UsuarioRepository;
@@ -21,9 +20,6 @@ import com.projeto.ufc.repository.UsuarioRepository;
 public class GerenteService {
 	@Autowired
 	private PratoRepository pratoRepository;
-	
-	@Autowired
-	private CardapioRepository cardapioRepository;
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;

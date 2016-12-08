@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.projeto.ufc.domain.PedidoCozinha;
 import com.projeto.ufc.domain.PedidoGarcom;
 import com.projeto.ufc.repository.PedidoRepositoryGarcom;
-import com.projeto.ufc.repository.PedidoRepositoryGerente;
 
 @Service
 public class GarcomService {

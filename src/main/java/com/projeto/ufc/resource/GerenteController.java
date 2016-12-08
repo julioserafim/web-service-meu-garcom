@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.projeto.ufc.domain.Cardapio;
-import com.projeto.ufc.domain.PedidoCozinha;
 import com.projeto.ufc.domain.PedidoGerente;
 import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;

@@ -3,7 +3,6 @@ package com.projeto.ufc.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.repository.UsuarioRepository;
 

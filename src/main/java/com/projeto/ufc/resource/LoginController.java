@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.projeto.ufc.criptografia.Criptografia;
 import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.form.LoginForm;
@@ -23,7 +25,7 @@ public class LoginController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST,consumes="application/json")
-	public ResponseEntity<Void> realizarLogin(LoginForm loginForm) throws NoSuchAlgorithmException{
+	public ResponseEntity<Void> realizarLogin(@RequestBody LoginForm loginForm) throws NoSuchAlgorithmException{
 		
 		System.out.println("LOGIN:" + loginForm.getLoginDigitado());
 		Usuario usuario = usuarioDAO.findByLoginLike(loginForm.getLoginDigitado());
