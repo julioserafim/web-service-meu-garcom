@@ -30,28 +30,28 @@ public class GerenteController {
 	@RequestMapping(value = "/prato",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarPratoGerente(@RequestBody Prato prato){
 		gerenteService.adicionarPrato(prato);
-		return "{msg:OK}";
+		return "{\"msg\": \"OK\"}";
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
 	@RequestMapping(value = "/prato/{id}",method = RequestMethod.DELETE)
 	public String removerPrato(@PathVariable("id")Long id){
 		gerenteService.deletarPrato(id);
-		return "{msg:OK}";
+		return "{\"msg\": \"OK\"}";
 	}
 	
 	
 	@RequestMapping(value = "/funcionario",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarFuncionario(@RequestBody Usuario usuario){
 		usuarioService.adicionarUsuario(usuario);
-		return "{msg:OK}";
+		return "{\"msg\": \"OK\"}";
 	}
 	
 	@CrossOrigin(methods=RequestMethod.DELETE)
 	@RequestMapping(value = "/funcionario/{id}",method = RequestMethod.DELETE)
 	public String removerFuncionario(@PathVariable("id")Long id){
 		usuarioService.removerUsuario(id);
-		return "{msg:OK}";
+		return "{\"msg\": \"OK\"}";
 	}
 	
 	@RequestMapping(value = "/funcionario",method = RequestMethod.GET,produces="application/json")

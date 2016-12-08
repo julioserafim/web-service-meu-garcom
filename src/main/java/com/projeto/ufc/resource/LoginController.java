@@ -32,21 +32,21 @@ public class LoginController {
 		if(usuario.getSenha().equals(senhaCriptografada)){ 
 			
 			if(loginForm.getCargo() == "gerente"){
-				return "{msg:OK}";
+				return "{\"msg\": \"OK\"}";
 				
 			}
 			
 			if(loginForm.getCargo() == "garcom"){
-				return "{msg:OK}";
+				return "{\"msg\": \"OK\"}";
 			}
 			
 			else{ // É funcionario da cozinha
-				return "{msg:OK}";
+				return "{\"msg\": \"OK\"}";
 			}
 			
 		}
 		
-		return "{msg:ERROR}";
+		return "{\"msg\": \"ERROR\"}";
 
 	}
 }
