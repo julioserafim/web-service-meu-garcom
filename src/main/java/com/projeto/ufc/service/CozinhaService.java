@@ -7,13 +7,18 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.projeto.ufc.domain.PedidoCozinha;
+import com.projeto.ufc.domain.Prato;
 import com.projeto.ufc.repository.PedidoRepositoryCozinha;
+import com.projeto.ufc.repository.PratoRepository;
 
 @Service
 public class CozinhaService {
 	
 	@Autowired
 	private PedidoRepositoryCozinha pedidoRepositoryCozinha;
+	
+	@Autowired
+	private PratoRepository pratoRepository;
 	
 	@Autowired
 	private GarcomService garcomService;
@@ -30,6 +35,9 @@ public class CozinhaService {
 	
 	public void deletar(@PathVariable("id") Long id){ // quando deletar aqui colocar nos prontos pro garçom
 		PedidoCozinha pedidoCozinha = pedidoRepositoryCozinha.findOne(id);
+		Prato prato = pratoRepository.findOne(pedidoCozinha.getPrato_id());
+		pedidoCozinha.setDescricao(prato.getDescricao());
+		pedidoCozinha.setNome(prato.getNome());
 		garcomService.adicionarPedidoGarcom(pedidoCozinha);
 		pedidoRepositoryCozinha.delete(id);
 	}

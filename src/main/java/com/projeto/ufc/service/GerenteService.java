@@ -67,6 +67,8 @@ public class GerenteService {
 		pedidoGerente.setId(pedidoGarcom.getId());
 		pedidoGerente.setMesa(pedidoGarcom.getMesa());
 		pedidoGerente.setPrato_id(pedidoGarcom.getPrato_id());
+		pedidoGerente.setDescricao(pedidoGarcom.getDescricao());
+		pedidoGerente.setNome(pedidoGarcom.getNome());
 	
 		pedidoGerenteRepository.save(pedidoGerente);
 	}
