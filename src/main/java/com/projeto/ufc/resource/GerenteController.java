@@ -3,6 +3,7 @@ package com.projeto.ufc.resource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.projeto.ufc.domain.Usuario;
 import com.projeto.ufc.service.GerenteService;
 import com.projeto.ufc.service.UsuarioService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/gerente")
 public class GerenteController {
@@ -36,7 +38,7 @@ public class GerenteController {
 		return "Deletado com sucesso";
 	}
 	
-	
+	@CrossOrigin
 	@RequestMapping(value = "/funcionario",method = RequestMethod.POST,consumes="application/json")
 	public String adicionarFuncionario(@RequestBody Usuario usuario){
 		usuarioService.adicionarUsuario(usuario);

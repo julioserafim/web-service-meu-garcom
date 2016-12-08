@@ -18,27 +18,27 @@ public class Pedido {
 	@JsonInclude(Include.NON_NULL)
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cod_pedido;
+	private Long id;
 		
 	private int mesa;
 		
-	@OneToOne
 	@JoinColumn(name = "prato_id")
-	private Prato prato;
+	private Long prato_id;
+
 	
-	public Prato getPrato() {
-		return prato;
+	public Long getId() {
+		return id;
 	}
-	public void setPrato(Prato prato) {
-		this.prato = prato;
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getPrato_id() {
+		return prato_id;
+	}
+	public void setPrato_id(Long prato_id) {
+		this.prato_id = prato_id;
 	}
 	
-	public Long getCod_pedido() {
-		return cod_pedido;
-	}
-	public void setCod_pedido(Long cod_pedido) {
-		this.cod_pedido = cod_pedido;
-	}
 	public int getMesa() {
 		return mesa;
 	}
