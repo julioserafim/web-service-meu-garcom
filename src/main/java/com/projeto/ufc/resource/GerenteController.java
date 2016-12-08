@@ -52,6 +52,7 @@ public class GerenteController {
 		return "Salvo com sucesso";
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value = "/funcionario",method = RequestMethod.GET,produces="application/json")
 	public List<Usuario> listarUsuario(){
 		return gerenteService.retornarTodosFuncionarios();
